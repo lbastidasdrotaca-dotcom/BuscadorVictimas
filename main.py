@@ -158,10 +158,10 @@ def buscar_en_paginas(termino_busqueda, callback_progreso):
     return resultados
 
 def main(page: ft.Page):
-    page.title = "Búsqueda Integral de Desaparecidos"
-    page.theme_mode = ft.ThemeMode.LIGHT
-    page.scroll = ft.ScrollMode.AUTO
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+if __name__ == "__main__":
+    # Esto le dice a Flet que escuche en el puerto que Railway le asigne
+    ft.app(target=main, port=8080, view=ft.AppView.WEB_BROWSER)
 
     txt_busqueda = ft.TextField(
         label="Nombre, Apellido o Cédula", 
@@ -283,4 +283,29 @@ def main(page: ft.Page):
         )
     )
 
-ft.run(main)
+import flet as ft
+import os
+
+def main(page: ft.Page):
+    # ... todo el contenido de tu página ...
+    
+    # Tu código actual (ejemplo de la estructura final):
+    page.add(
+        # ... otros componentes ...
+        ft.Container(
+            content=ft.Text(
+                "Version 1.0 - Desarrollado por @bastidaslucio sin fines de lucro",
+                size=10,
+                color=ft.Colors.GREY_500,
+                text_align=ft.TextAlign.RIGHT
+            ),
+            alignment=ft.Alignment(1.0, 1.0),
+            width=380,
+            padding=10
+        )
+    )
+
+if __name__ == "__main__":
+    # Esta es la lógica que hace que Railway funcione:
+    port = int(os.environ.get("PORT", 8080))
+    ft.app(target=main, port=port, view=ft.AppView.WEB_BROWSER)
