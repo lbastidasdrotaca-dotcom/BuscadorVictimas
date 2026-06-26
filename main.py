@@ -79,6 +79,7 @@ def buscar_en_paginas(termino_busqueda, callback_progreso):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.binary_location = "/usr/bin/google-chrome"
     
     resultados = procesar_terremoto_con_buscador("https://desaparecidosterremotovenezuela.com/", termino, chrome_options, callback_progreso)
     if not resultados:
